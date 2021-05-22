@@ -1,0 +1,35 @@
+= NASA Mars Rover Photos API PHP Wrapper
+
+For more details on the API see:
+
+* https://github.com/chrisccerami/mars-photo-api[/chrisccerami/mars-photo-api]
+* https://api.nasa.gov/[api.nasa.gov]
+
+== Usage
+[source, php]
+====
+require_once('path/to/src/include.php');
+
+$mars = new MarsRoverPhoto(
+  apiKey: 'DEMO_KEY',
+  rover: 'curiosity',
+);
+
+$photos = $mars->sol(100)->camera('NAVCAM')->get();
+====
+
+.Method overview
+[%noheader]
+|===
+| `public MarsRoverPhoto::__construct ( string $apiKey , string $rover )`
+
+| `public MarsRoverPhoto::get ( ) : object`
+
+| `public MarsRoverPhoto::sol ( int $sol ) : MarsRoverPhoto`
+
+| `public MarsRoverPhoto::earthDate ( int $earthDate ) : MarsRoverPhoto`
+
+| `public MarsRoverPhoto::camera ( string $camera ) : MarsRoverPhoto`
+
+| `public MarsRoverPhoto::page ( int $page ) : MarsRoverPhoto`
+|===
