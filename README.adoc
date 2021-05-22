@@ -5,9 +5,9 @@ For more details on the API see:
 * https://github.com/chrisccerami/mars-photo-api[/chrisccerami/mars-photo-api]
 * https://api.nasa.gov/[api.nasa.gov]
 
-== Usage
+.Usage
 [source, php]
-====
+----
 require_once('path/to/src/include.php');
 
 $mars = new MarsRoverPhoto(
@@ -16,20 +16,20 @@ $mars = new MarsRoverPhoto(
 );
 
 $photos = $mars->sol(100)->camera('NAVCAM')->get();
-====
+----
 
 .Method overview
-[%noheader]
-|===
-| `public MarsRoverPhoto::__construct ( string $apiKey , string $rover )`
+[source, php]
+----
+public MarsRoverPhoto::__construct ( string $apiKey , string $rover )
 
-| `public MarsRoverPhoto::get ( ) : object`
+public MarsRoverPhoto::get ( ) : object
 
-| `public MarsRoverPhoto::sol ( int $sol ) : MarsRoverPhoto`
+public MarsRoverPhoto::sol ( int $sol ) : MarsRoverPhoto
 
-| `public MarsRoverPhoto::earthDate ( int $earthDate ) : MarsRoverPhoto`
+public MarsRoverPhoto::earthDate ( int $earthDate ) : MarsRoverPhoto
 
-| `public MarsRoverPhoto::camera ( string $camera ) : MarsRoverPhoto`
+public MarsRoverPhoto::camera ( string $camera ) : MarsRoverPhoto
 
-| `public MarsRoverPhoto::page ( int $page ) : MarsRoverPhoto`
-|===
+public MarsRoverPhoto::page ( int $page ) : MarsRoverPhoto
+----
