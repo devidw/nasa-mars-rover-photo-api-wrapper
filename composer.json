@@ -1,0 +1,20 @@
+{
+    "name": "devidw/nasa-mars-rover-photo-api-wrapper",
+    "description": "PHP Wrapper for NASA's Mars Rover Photos API",
+    "require": {
+        "php": ">=8.0.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Devidw\\MarsRoverPhoto\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "David Wolf",
+            "email": "david@wolf.gdn"
+        }
+    ],
+    "minimum-stability": "dev"
+}
