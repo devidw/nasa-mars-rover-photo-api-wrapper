@@ -1,22 +1,32 @@
 = NASA Mars Rover Photos API PHP Wrapper
 
-== Usage
-.Sample usage
-[source, php]
+== Installation
+[source,zsh]
 ----
-require_once('path/to/src/include.php');
+composer require devidw/nasa-mars-rover-photo-api-wrapper
+----
+
+== Usage
+[source,php]
+----
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+use Devidw\MarsRoverPhoto\MarsRoverPhoto;
 
 $mars = new MarsRoverPhoto(
-  apiKey: 'DEMO_KEY',
-  rover: 'curiosity',
+    apiKey: 'DEMO_KEY',
+    rover: 'curiosity',
 );
 
 $photos = $mars->sol(100)->camera('NAVCAM')->get();
+
+var_dump($photos);
 ----
 
 == Methods
-.Method overview
-[source, php]
+[source,php]
 ----
 public MarsRoverPhoto::__construct ( string $apiKey , string $rover )
 
@@ -30,7 +40,6 @@ public MarsRoverPhoto::camera ( string $camera ) : MarsRoverPhoto
 
 public MarsRoverPhoto::page ( int $page ) : MarsRoverPhoto
 ----
-
 
 == See
 For more details on the API see:

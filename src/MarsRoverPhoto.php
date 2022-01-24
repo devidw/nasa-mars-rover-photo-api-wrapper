@@ -1,23 +1,48 @@
 <?php
 
+namespace Devidw\MarsRoverPhoto;
+
+use Devidw\MarsRoverPhoto\Rover;
+
 /**
- * @class MarsRoverPhoto
- *
- * PHP Wrapper for NASAs Mars Rover Photos API
- * @link https://github.com/chrisccerami/mars-photo-api
- * @link https://api.nasa.gov
- *
- * @author David Wolf <david@wolf.gdn>
- * @website http://david.wolf.gdn
+ * PHP Wrapper for NASA's Mars Rover Photos API
+ * 
+ * @see https://github.com/chrisccerami/mars-photo-api
+ * @see https://api.nasa.gov
  */
 class MarsRoverPhoto
 {
+  /**
+   * Rovers
+   * 
+   * @var array
+   */
   private $rovers;
+
+  /**
+   * Rover cameras
+   * 
+   * @var array
+   */
   private $cameras;
+
+  /**
+   * API Base URL
+   * 
+   * @var string
+   */
   private $baseURL;
+
+  /**
+   * API Query Parameters
+   * 
+   * @var array
+   */
   private $params;
 
   /**
+   * Constructor
+   * 
    * @param string $apiKey
    * @param string $rover
    */
@@ -43,7 +68,7 @@ class MarsRoverPhoto
       throw new Exception("rover must be one of $rovers");
     }
 
-    $this->baseURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/$this->rover/photos";
+    $this->baseURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/{$this->rover}/photos";
     $this->params = [
       'api_key' => $this->apiKey,
     ];
@@ -51,19 +76,22 @@ class MarsRoverPhoto
   }
 
   /**
+   * Get the requested photos
+   * 
    * @return object
    */
-   public function get(): object
+  public function get(): object
   {
     $query = http_build_query($this->params);
     $request = "$this->baseURL?$query";
-    // return $request;
     $response = file_get_contents($request);
     $response = json_decode($response);
     return $response;
   }
 
   /**
+   * Set the sol to filter by th photo's sol
+   * 
    * @param int $sol
    * @return MarsRoverPhoto
    */
@@ -74,6 +102,8 @@ class MarsRoverPhoto
   }
 
   /**
+   * Set the earth's date to filter by the photo's earth date
+   * 
    * @param string $earthDate
    * @return MarsRoverPhoto
    */
@@ -84,6 +114,8 @@ class MarsRoverPhoto
   }
 
   /**
+   * Set the camera to filter by the photo's camera
+   * 
    * @param string $camera
    * @return MarsRoverPhoto
    */
@@ -99,6 +131,8 @@ class MarsRoverPhoto
   }
 
   /**
+   * Set the page to retrieve a specific page of results
+   * 
    * @param int $page
    * @return MarsRoverPhoto
    */
