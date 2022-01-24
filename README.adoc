@@ -44,5 +44,5 @@ public MarsRoverPhoto::page ( int $page ) : MarsRoverPhoto
 == See
 For more details on the API see:
 
-* https://github.com/chrisccerami/mars-photo-api[/chrisccerami/mars-photo-api]
+* https://github.com/chrisccerami/mars-photo-api[chrisccerami/mars-photo-api]
 * https://api.nasa.gov/[api.nasa.gov]
